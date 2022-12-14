@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>DALVA lumininarias</title>
+	
+
+    <link rel="stylesheet" href="/api/js/leaflet.css" crossorigin=""/>
+   	<script src="/api/js/leaflet.js" crossorigin=""></script>
+
+
+	<link rel="stylesheet" href="/api/js/MarkerCluster.css" />
+	<link rel="stylesheet" href="/api/js/MarkerCluster.Default.css" />
+	<script src="/api/js/leaflet.markercluster-src.js"></script>
+	<script src="/api/js/jquery-1.7.1.min.js"></script>
+   	<script src='/api/js/leaflet-omnivore.min.js'></script>
+
+        <script src="/api/js/PruneCluster.js"></script>
+        <link rel="stylesheet" href="/api/js/examples.css">
+
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+
+<div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;">
+    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+        <div class="leaflet-pane leaflet-tile-pane">
+    <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+        <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);">
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+
+
+
+const guarda = L.layerGroup();
+
+
+            var maps = // set leaflet tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                }),
+
+
+                googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                }),
+
+ CyclOSM = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+});
+
+
+
+            var baseMaps = {
+                "Terreno": googleSat,
+                "Mapa": maps,
+"Eleva" : CyclOSM
+		};
+
+	const overlays = {
+		'Guarda': guarda,
+
+	};
+
+
+        // define leaflet map
+        var leaflet = L.map('map', {
+            center: [40.586950, -7.241789],
+            zoom: 10,
+            layers: [maps,guarda]
+
+        });
+
+
+        // COLOR 
+        var guardaLayer = L.geoJson(null, {
+            
+                    style: function(feature) {
+                        return { color: '#6fa8dc' };
+                    }
+                });
+        
+
+
+
+
+    L.control.layers(baseMaps,overlays).addTo(leaflet);
+
+
+
+    var leafletView = new PruneClusterForLeaflet(25);
+
+function onLocationFound(e) {
+    var radius = e.accuracy;
+
+    L.marker(e.latlng).addTo(leaflet)
+        .bindPopup("Est� a " + radius + " metros deste ponto").openPopup();
+
+    L.circle(e.latlng, radius).addTo(leaflet);
+}
+
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+
+
+    $.ajax({
+            url: "/api/depositos",
+            type: "GET",
+            crossDomain: true,
+            success: function (response) {
+                //console.log(response.length);
+
+		leaflet.on('locationfound', onLocationFound);
+	
+
+leaflet.on('locationerror', onLocationError);
+
+                for (var i = 0; i < response.depositos.length; i++) {
+                    var a = response.depositos[i];
+			       // console.log( response.depositos[i].body ); 
+                    var title = a.name;
+                    //markers.addLayer(marker);
+                    leafletView.RegisterMarker(new PruneCluster.Marker(a.lat, a.lng, { title: a.name }));
+
+                }
+                leafletView.PrepareLeafletMarker = function (marker, data) {
+
+                    if (marker.getPopup()) {
+                        marker.setPopupContent(data.title);
+                    } else {
+                        marker.bindPopup(data.title);
+                    }
+                    var icon = marker.options.icon;
+                        icon.options.iconSize = [16, 25];
+                        icon.options.iconAnchor= [2, 20];
+                        icon.options.popupAnchor= [6, -20];
+                        icon.options.shadowSize= [25, 25];
+
+                        marker.setIcon(icon);
+
+                };
+                leaflet.addLayer(leafletView);
+
+            },
+            error: function (xhr, status) {
+                alert("error");
+            }
+        });	
+
+                var run_1_Layer = omnivore.geojson('/api/json/2844.geojson', null, guardaLayer)
+                run_1_Layer.addTo(leaflet);              
+
+
+
+</script>
+
+
+
+</body>
+</html>
