@@ -1,0 +1,86 @@
+2022-12-14 00:14:20.969 DEBUG 17880 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/images/marker-icon-2x.png]
+2022-12-14 00:14:20.969 DEBUG 17880 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/images/marker-shadow.png]
+2022-12-14 00:14:20.982 DEBUG 17880 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/images/marker-icon-2x.png]
+2022-12-14 00:14:20.981 DEBUG 17880 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/images/marker-shadow.png]
+2022-12-14 11:21:15.871  INFO 4216 --- [main] a.d.depositoapi.depositoapiApplication   : Starting depositoapiApplication using Java 11.0.17 on WRK-SPROF-002 with PID 4216 (C:\VS\DEPOSITOS\target\classes started by Administrator in C:\VS\DEPOSITOS)
+2022-12-14 11:21:15.882  INFO 4216 --- [main] a.d.depositoapi.depositoapiApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-14 11:21:16.605  INFO 4216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-14 11:21:16.661  INFO 4216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interfaces.
+2022-12-14 11:21:17.621  INFO 4216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-14 11:21:17.632  INFO 4216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-14 11:21:17.633  INFO 4216 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-12-14 11:21:17.784  INFO 4216 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2022-12-14 11:21:17.785  INFO 4216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1863 ms
+2022-12-14 11:21:17.930 DEBUG 4216 --- [main] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured for use
+2022-12-14 11:21:18.000  INFO 4216 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-14 11:21:18.056  INFO 4216 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.33
+2022-12-14 11:21:18.162  INFO 4216 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-14 11:21:18.395  INFO 4216 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: app.dalva.depositoapi.config.persistence.dialect.SQLiteDialect
+2022-12-14 11:21:18.943  INFO 4216 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-14 11:21:18.952  INFO 4216 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-14 11:21:19.012  WARN 4216 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-14 11:21:19.594  INFO 4216 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2022-12-14 11:21:19.786  INFO 4216 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2022-12-14 11:21:19.852  WARN 4216 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-12-14 11:21:20.029  INFO 4216 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure any request
+2022-12-14 11:21:20.127  INFO 4216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2022-12-14 11:21:20.492  INFO 4216 --- [main] a.d.depositoapi.depositoapiApplication   : Started depositoapiApplication in 5.003 seconds (JVM running for 5.438)
+2022-12-14 11:21:44.852  INFO 4216 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-14 11:21:44.853  INFO 4216 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-14 11:21:44.855  INFO 4216 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-12-14 11:21:44.872 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/]
+2022-12-14 11:21:44.904 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/]
+2022-12-14 11:21:44.912 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/leaflet.css]
+2022-12-14 11:21:44.914 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/leaflet.js]
+2022-12-14 11:21:44.916 DEBUG 4216 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/jquery-1.7.1.min.js]
+2022-12-14 11:21:44.917 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/MarkerCluster.Default.css]
+2022-12-14 11:21:44.917 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/leaflet.markercluster-src.js]
+2022-12-14 11:21:44.917 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/MarkerCluster.css]
+2022-12-14 11:21:44.926 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/leaflet.css]
+2022-12-14 11:21:44.928 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/MarkerCluster.Default.css]
+2022-12-14 11:21:44.929 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/examples.css]
+2022-12-14 11:21:44.930 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/MarkerCluster.css]
+2022-12-14 11:21:44.932 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/leaflet-omnivore.min.js]
+2022-12-14 11:21:44.934 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/PruneCluster.js]
+2022-12-14 11:21:44.939 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/examples.css]
+2022-12-14 11:21:44.944 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/leaflet.markercluster-src.js]
+2022-12-14 11:21:44.957 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/PruneCluster.js]
+2022-12-14 11:21:44.968 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/leaflet-omnivore.min.js]
+2022-12-14 11:21:44.973 DEBUG 4216 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/jquery-1.7.1.min.js]
+2022-12-14 11:21:44.984 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/leaflet.js]
+2022-12-14 11:21:45.004 DEBUG 4216 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/dist/LeafletStyleSheet.css]
+2022-12-14 11:21:45.010 DEBUG 4216 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/dist/LeafletStyleSheet.css]
+2022-12-14 11:21:45.041 DEBUG 4216 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/depositos]
+2022-12-14 11:21:45.041 DEBUG 4216 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/json/2844.geojson]
+2022-12-14 11:21:45.057 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/js/images/layers-2x.png]
+2022-12-14 11:21:45.066 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/js/images/layers-2x.png]
+2022-12-14 11:21:45.078 DEBUG 4216 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/json/2844.geojson]
+2022-12-14 11:21:45.310 DEBUG 4216 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/depositos]
+2022-12-14 11:21:54.728 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui]
+2022-12-14 11:21:54.731 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui]
+2022-12-14 11:22:17.151 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui.html]
+2022-12-14 11:22:17.157 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui.html]
+2022-12-14 11:22:20.585 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui.htm]
+2022-12-14 11:22:20.588 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui.htm]
+2022-12-14 11:22:54.737 DEBUG 4216 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/]
+2022-12-14 11:22:54.743 DEBUG 4216 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/]
+2022-12-14 11:22:54.750 DEBUG 4216 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/springfox.css?v=3.0.0]
+2022-12-14 11:22:54.751 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/swagger-ui.css?v=3.0.0]
+2022-12-14 11:22:54.752 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/swagger-ui-bundle.js?v=3.0.0]
+2022-12-14 11:22:54.752 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/swagger-ui-standalone-preset.js?v=3.0.0]
+2022-12-14 11:22:54.752 DEBUG 4216 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/springfox.js?v=3.0.0]
+2022-12-14 11:22:54.754 DEBUG 4216 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/springfox.css?v=3.0.0]
+2022-12-14 11:22:54.756 DEBUG 4216 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/springfox.js?v=3.0.0]
+2022-12-14 11:22:54.756 DEBUG 4216 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/swagger-ui.css?v=3.0.0]
+2022-12-14 11:22:54.760 DEBUG 4216 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/swagger-ui-standalone-preset.js?v=3.0.0]
+2022-12-14 11:22:54.766 DEBUG 4216 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/swagger-ui-bundle.js?v=3.0.0]
+2022-12-14 11:22:54.861 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-resources/configuration/ui]
+2022-12-14 11:22:54.873 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-ui/favicon-32x32.png?v=3.0.0]
+2022-12-14 11:22:54.877 DEBUG 4216 --- [http-nio-8080-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-resources/configuration/ui]
+2022-12-14 11:22:54.881 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-ui/favicon-32x32.png?v=3.0.0]
+2022-12-14 11:22:54.884 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-resources/configuration/security]
+2022-12-14 11:22:54.890 DEBUG 4216 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-resources/configuration/security]
+2022-12-14 11:22:54.895 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/swagger-resources]
+2022-12-14 11:22:54.899 DEBUG 4216 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/swagger-resources]
+2022-12-14 11:22:54.925 DEBUG 4216 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/v2/api-docs]
+2022-12-14 11:22:55.024 DEBUG 4216 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA: GET /api/v2/api-docs]
