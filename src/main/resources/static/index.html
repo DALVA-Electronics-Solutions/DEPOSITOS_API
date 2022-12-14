@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-	<title>DALVA lumininarias</title>
+	<title>DALVA Depósitos</title>
 	
 
     <link rel="stylesheet" href="/api/js/leaflet.css" crossorigin=""/>
@@ -74,8 +74,8 @@ const guarda = L.layerGroup();
                     maxZoom: 20
                 }),
 
- CyclOSM = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                CyclOSM = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
 });
 
 
@@ -83,8 +83,8 @@ const guarda = L.layerGroup();
             var baseMaps = {
                 "Terreno": googleSat,
                 "Mapa": maps,
-"Eleva" : CyclOSM
-		};
+                "Eleva" : CyclOSM
+                        };
 
 	const overlays = {
 		'Guarda': guarda,
@@ -140,27 +140,36 @@ function onLocationError(e) {
             type: "GET",
             crossDomain: true,
             success: function (response) {
-                //console.log(response.length);
+            //console.log(response.length);
 
 		leaflet.on('locationfound', onLocationFound);
 	
 
-leaflet.on('locationerror', onLocationError);
+        leaflet.on('locationerror', onLocationError);
 
                 for (var i = 0; i < response.depositos.length; i++) {
                     var a = response.depositos[i];
-			       // console.log( response.depositos[i].body ); 
+			        console.log( response.depositos[i].body ); 
                     var title = a.name;
                     //markers.addLayer(marker);
-                    leafletView.RegisterMarker(new PruneCluster.Marker(a.lat, a.lng, { title: a.name }));
+                    leafletView.RegisterMarker(new PruneCluster.Marker(a.lat, a.lng, { title: a.name, percent: a.porcentagem, time: a.timestamp }));
 
                 }
                 leafletView.PrepareLeafletMarker = function (marker, data) {
-
+                    var timeStamp= data.time;
+                    var dateFormat= new Date(timeStamp);
                     if (marker.getPopup()) {
-                        marker.setPopupContent(data.title);
+                        marker.setPopupContent('<b>'+data.title+'</b><br />'+ dateFormat.getDate()+
+                                                                                                        "/"+(dateFormat.getMonth()+1)+
+                                                                                                        " "+dateFormat.getHours()+
+                                                                                                        ":"+dateFormat.getMinutes()+
+                                                                                                        '<br /><br /><b>Nível:'+data.percent+'%</b>').openPopup();
                     } else {
-                        marker.bindPopup(data.title);
+                        marker.bindPopup('<b>'+data.title+'</b><br />'+ dateFormat.getDate()+
+                                                                                                        "/"+(dateFormat.getMonth()+1)+
+                                                                                                        " "+dateFormat.getHours()+
+                                                                                                        ":"+dateFormat.getMinutes()+
+                                                                                                        '<br /><br /><b>Nível:'+data.percent+'%</b>').openPopup();
                     }
                     var icon = marker.options.icon;
                         icon.options.iconSize = [16, 25];

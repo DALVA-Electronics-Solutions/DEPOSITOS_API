@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>DALVA lumininarias</title>
+	
+
+    	<link rel="stylesheet" href="/api/js/leaflet.css" crossorigin=""/>
+   	<script src="/api/js/leaflet.js" crossorigin=""></script>
+
+
+	<link rel="stylesheet" href="/api/js/MarkerCluster.css" />
+	<link rel="stylesheet" href="/api/js/MarkerCluster.Default.css" />
+	<script src="/api/js/leaflet.markercluster-src.js"></script>
+	<script src="/api/js/jquery-1.7.1.min.js"></script>
+   	<script src='/api/js/leaflet-omnivore.min.js'></script>
+
+        <script src="http://sintef-9012.github.io/PruneCluster/dist/PruneCluster.js"></script>
+
+        <script src="/api/js/gps1.js"></script>
+
+
+        <link rel="stylesheet" href="http://sintef-9012.github.io/PruneCluster/examples/examples.css">
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 100%;"></div>
+<script>
+/*
+const seia = L.layerGroup();
+const meda = L.layerGroup();
+const celorico = L.layerGroup();
+
+
+            var maps = // set leaflet tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                }),
+
+
+                googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                });
+
+
+            var baseMaps = {
+                "Terreno": googleSat,
+                "Mapa": maps
+		};
+
+	const overlays = {
+		'Seia': seia,
+		'Celorico da Beira': celorico,
+		'Meda': meda,
+
+	};
+
+
+        // define leaflet map
+        var leaflet = L.map('map', {
+            center: [40.586950, -7.241789],
+            zoom: 10,
+            layers: [maps,seia]
+
+        });
+
+
+        // COLOR 
+        var seiaLayer = L.geoJson(null, {
+                    style: function(feature) {
+                        return { color: '#6fa8dc' };
+                    }
+                });
+        var celoricoLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+        var medaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+        var idanhaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+        var belmonteLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+
+        var covilhaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+
+        L.control.layers(baseMaps,overlays).addTo(leaflet);
+	var markers = L.markerClusterGroup();
+		
+
+
+ $.ajax({
+            url: "/api/depositos",
+            type: "GET",
+            crossDomain: true,
+            success: function (response) {
+                //console.log(response.length);
+
+               // console.log( response.depositos[0] ); // server response;
+               // console.log( response.depositos[0].name ); // server response;
+ 
+
+				
+                for (var i = 0; i < response.depositos.length; i++) {
+                    var a = response.depositos[i];
+			console.log( response.depositos[i].body ); 
+                    var title = a.name;
+                    var marker = L.marker(new L.LatLng(a.lat, a.lng), { title: a.name }).addTo(seia);
+
+			var icon = marker.options.icon;
+			icon.options.iconSize = [16, 25];
+                    	icon.options.iconAnchor= [2, 20];
+                    	icon.options.popupAnchor= [6, -20];
+                    	icon.options.shadowSize= [25, 25];
+
+			marker.setIcon(icon);
+
+                    marker.bindPopup(title);
+                    markers.addLayer(marker);
+                    //console.log( a.lat ); // server response;
+
+                }
+
+                leaflet.addLayer(markers); 
+
+
+                var run_1_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2849.geojson', null, seiaLayer)
+                var run_2_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2845.geojson', null, medaLayer)
+                var run_3_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2840.geojson', null, celoricoLayer)
+                var run_4_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2800.geojson', null, idanhaLayer)
+
+                var run_5_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2798.geojson', null, covilhaLayer)
+                var run_6_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2796.geojson', null, belmonteLayer)
+
+
+
+                run_1_Layer.addTo(leaflet);              
+                run_2_Layer.addTo(leaflet);     
+                run_3_Layer.addTo(leaflet);
+                run_4_Layer.addTo(leaflet);                
+
+                run_5_Layer.addTo(leaflet);
+                run_6_Layer.addTo(leaflet);  
+ 
+            },
+            error: function (xhr, status) {
+                alert("error");
+            }
+        });	
+
+*/
+
+
+
+const seia = L.layerGroup();
+const meda = L.layerGroup();
+const celorico = L.layerGroup();
+
+
+            var maps = // set leaflet tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                }),
+
+
+                googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                    attribution: '&copy; <a href="https://dalva.app">DALVA</a>',
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                    maxNativeZoom: 19,
+                    maxZoom: 20
+                });
+
+
+            var baseMaps = {
+                "Terreno": googleSat,
+                "Mapa": maps
+		};
+
+	const overlays = {
+		'Seia': seia,
+		'Celorico da Beira': celorico,
+		'Meda': meda,
+
+	};
+
+
+        // define leaflet map
+        var leaflet = L.map('map', {
+            center: [40.586950, -7.241789],
+            zoom: 10,
+            layers: [maps,seia]
+
+        });
+
+
+        // COLOR 
+        var seiaLayer = L.geoJson(null, {
+                    style: function(feature) {
+                        return { color: '#6fa8dc' };
+                    }
+                });
+        var celoricoLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+        var medaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+        var idanhaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+        var belmonteLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+
+        var covilhaLayer = L.geoJson(null, {
+            style: function(feature) {
+                return { color: '#6fa8dc' };
+            }
+        });
+
+
+    L.control.layers(baseMaps,overlays).addTo(leaflet);
+	//var markers = L.markerClusterGroup();
+		
+
+
+    var leafletView = new PruneClusterForLeaflet();
+
+
+    for (i = 0, l = addressPoints2.length; i < l; ++i) {
+        leafletView.RegisterMarker(new PruneCluster.Marker(addressPoints2[i][0], addressPoints2[i][1], {title: addressPoints2[i][2]}));
+    }
+
+    leafletView.PrepareLeafletMarker = function (marker, data) {
+        if (marker.getPopup()) {
+            marker.setPopupContent(data.title);
+        } else {
+            marker.bindPopup(data.title);
+        }
+        var icon = marker.options.icon;
+			icon.options.iconSize = [16, 25];
+                    	icon.options.iconAnchor= [2, 20];
+                    	icon.options.popupAnchor= [6, -20];
+                    	icon.options.shadowSize= [25, 25];
+
+			marker.setIcon(icon);
+
+    };
+
+    leaflet.addLayer(leafletView);
+
+                var run_1_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2849.geojson', null, seiaLayer)
+                var run_2_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2845.geojson', null, medaLayer)
+                var run_3_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2840.geojson', null, celoricoLayer)
+                var run_4_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2800.geojson', null, idanhaLayer)
+
+                var run_5_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2798.geojson', null, covilhaLayer)
+                var run_6_Layer = omnivore.geojson('http://mapas.distrito.pt/area/2796.geojson', null, belmonteLayer)
+
+
+
+                run_1_Layer.addTo(leaflet);              
+                run_2_Layer.addTo(leaflet);     
+                run_3_Layer.addTo(leaflet);
+                run_4_Layer.addTo(leaflet);                
+
+                run_5_Layer.addTo(leaflet);
+                run_6_Layer.addTo(leaflet);  
+
+</script>
+
+
+
+</body>
+</html>

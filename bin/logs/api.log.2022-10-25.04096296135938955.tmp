@@ -1,0 +1,1 @@
+2022-10-27 01:30:02.737  INFO 1026706 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
