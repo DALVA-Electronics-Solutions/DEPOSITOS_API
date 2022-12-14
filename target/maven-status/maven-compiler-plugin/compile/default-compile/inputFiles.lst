@@ -1,0 +1,16 @@
+/var/www/API/src/main/java/app/dalva/luminariaapi/controller/LuminariaController.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/config/persistence/PersistenceConfig.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/response/LuminariaDeleteResponse.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/dto/LuminariaDto.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/service/LuminariaService.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/response/LuminariaListResponse.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/luminariaapiApplication.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/config/logging/RequestLoggingFilterConfig.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/config/swagger/SpringFoxConfig.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/repository/LuminariaRepository.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/entity/LuminariaEntity.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/converter/LuminariaConverter.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/service/impl/LuminariaServiceImpl.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/config/security/SpringSecurityConfig.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/model/request/LuminariaRequest.java
+/var/www/API/src/main/java/app/dalva/luminariaapi/config/persistence/dialect/SQLiteDialect.java
