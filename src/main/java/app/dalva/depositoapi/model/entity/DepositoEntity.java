@@ -31,7 +31,7 @@ public class DepositoEntity {
     private String deveui;
 
     @Column
-    private Integer porcentagem = 100;
+    private Integer atual = 100;
 
     @Column
     private double lat;
@@ -48,7 +48,6 @@ public class DepositoEntity {
     @Column
     private boolean deleted = Boolean.FALSE;
 
-
     @Column
     private Long timestamp;
 
@@ -59,12 +58,22 @@ public class DepositoEntity {
     private Integer minimo;
 
     @Column
-    private Integer alarm;
+    private String alarms_JSON = "[{envioConfig:0},{nivel:0},{enviou:0},{contentEmail: 'conteudo do email'},{contentSMS:'conteudo do SMS'},]";
 
     @Column
-    private String email;
+    private String alarmEmail;
 
     @Column
     private String alarmSMS;
+
+    @Column
+    private Integer volumeM3;
+
+    @Column
+    private String grafanaDias;
+
+    @Column
+    private Boolean ignorarAlarm;
+
 
 }

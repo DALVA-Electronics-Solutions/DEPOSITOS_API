@@ -16,7 +16,7 @@ public class DepositoConverter {
             .id(entity.getId())
             .name(entity.getName())
             .deveui(entity.getDeveui())
-            .porcentagem(entity.getPorcentagem())
+            .atual(entity.getAtual())
             .lat(entity.getLat())
             .lng(entity.getLng())
             .body(entity.getBody())
@@ -24,9 +24,12 @@ public class DepositoConverter {
             .timestamp(entity.getTimestamp())
             .maximo(entity.getMaximo())
             .minimo(entity.getMinimo())
-            .alarm(entity.getAlarm())
-            .email(entity.getEmail())
+            .alarms_JSON(entity.getAlarms_JSON())
+            .alarmEmail(entity.getAlarmEmail())
             .alarmSMS(entity.getAlarmSMS())
+            .volumeM3(entity.getVolumeM3())
+            .grafanaDias(entity.getGrafanaDias())
+            .ignorarAlarm(entity.getIgnorarAlarm())
             .build();
         }
     }
@@ -38,7 +41,7 @@ public class DepositoConverter {
             return DepositoEntity.builder()
             .name(request.getName())
             .deveui(request.getDeveui())
-            .porcentagem(request.getPorcentagem())
+            .atual(request.getAtual())
             .lat(request.getLat())
             .lng(request.getLng())
             .body(request.getBody())
@@ -46,9 +49,12 @@ public class DepositoConverter {
             .timestamp(request.getTimestamp())
             .maximo(request.getMaximo())
             .minimo(request.getMinimo())
-            .alarm(request.getAlarm())
-            .email(request.getEmail())
+            .alarmEmail(request.getAlarmEmail())
+            .alarms_JSON(request.getAlarmJSON())
             .alarmSMS(request.getAlarmSMS())
+            .volumeM3(request.getVolumeM3())
+            .grafanaDias(request.getGrafanaDias())
+            .ignorarAlarm(request.getIgnorarAlarm())
             .build();
         }
     }

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -15,7 +17,7 @@ public class DepositoDto implements Serializable {
     private Long id;
     private String name;
     private String deveui;
-    private Integer porcentagem;
+    private Integer atual;
     private double lat;
     private double lng;
     private String body;
@@ -23,8 +25,10 @@ public class DepositoDto implements Serializable {
     private Long timestamp;
     private Integer maximo;
     private Integer minimo;
-    private Integer alarm;
-    private String email;
+    private String alarms_JSON;
+    private String alarmEmail;
     private String alarmSMS;
-
+    private Integer volumeM3;
+    private String grafanaDias;
+    private Boolean ignorarAlarm;
 }
